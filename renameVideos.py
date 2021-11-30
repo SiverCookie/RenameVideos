@@ -1,15 +1,18 @@
 # Python3 code to rename multiple files in a directory or folder
 # command example python renameVideos.py textToBeCut textToBeCutFormat whereToCut
-#                 textToBeCut      : the portion of text needed to be cut or the number of characters needed to be cut
-#                 textToBeCutFormat: t - text, n - number of characters to be cut
-#                 whereToCut       : b - beggining, e - end
-# Delete 4 characters from thew end      :  python renameVideos.py 4 n e 
-# Delete 4 characters from thew beggining:  python renameVideos.py 4 n b 
+#                 textToBeCut       : the portion of text needed to be cut or the number of characters needed to be cut
+#                 textToBeCutFormat : t - text, n - number of characters to be cut
+#                 whereToCut        : b - beggining, e - end
+# Delete 4 characters from the end       :  python renameVideos.py 4 n e 
+# Delete 4 characters from the beggining :  python renameVideos.py 4 n b 
 # Delete a chunk of text from the file   :  python renameVideos.py theChunk t 
 
 import os
 import sys
 
+# Function used to get the format of a file
+# Input: filename - name of file (ex: "video.mp4")
+# Output: file format (ex: ".mp4")
 def getVideoFormat(filename):
 	idx = -1
 	format = ''
@@ -25,8 +28,13 @@ def getVideoFormat(filename):
 	
 
 # Function to rename multiple files
-def cutVideos(filename,textToBeCut,textToBeCutFormat, whereToCut):
+# Input: filename - name of file
+#        textToBeCut - the chunk of thext to be cut or the number of letter neede to be cut
+#        textToBeCutFormat - specifies whether the text needed to be cut is a string or a number(t - text, n - number of characters to be cut)
+#        whereToCut - specifies whether the text should be cut from the begging or the end(b - beggining, e - end)
+def cutVideos(filename, textToBeCut, textToBeCutFormat, whereToCut):
 	dst = ''
+    #ignore the script
 	if filename == 'renameVideos.py':
 		pass
 	else:
